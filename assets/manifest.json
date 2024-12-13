@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Smart word translator",
+    "description": "This extension will translate any words you don't know or you selected.",
+    "version": "1.0.0",
+    "icons": {
+        "16": "imgs/icon.png",
+        "48": "imgs/icon.png",
+        "124": "imgs/icon.png"
+    },
+    "action": {
+        "default_title": "Smart translator",
+        "default_popup": "popup.html"
+    }
+}
