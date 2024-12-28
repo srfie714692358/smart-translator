@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Smart translator",
+    "description": "This extension will translate the words you don't know.",
+    "version": "0.1.0",
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "124": "icon.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "options_page": "options.html"
+}
