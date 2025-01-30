@@ -47,18 +47,18 @@ module.exports = {
 			],
 		}),
 		new HtmlWebpackPlugin({
-			title: "Smart translator | popup",
+			template: "src/index.html",
 			filename: "popup.html",
 			chunks: ["popup"],
 		}),
 		new HtmlWebpackPlugin({
-			title: "Smart translator | options page",
+			template: "src/index.html",
 			filename: "options.html",
 			chunks: ["options"],
 		}),
 		new MiniCssExtractPlugin(),
 	],
 	resolve: {
-		extensions: [".ts", ".tsx", ".js"],
+		extensions: [".ts", ".tsx", ".js", ".json"],
 	},
 };
