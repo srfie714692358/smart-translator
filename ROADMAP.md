@@ -8,8 +8,8 @@
 
 ## Phase 2: Configs of app
 
-- [ ] Configuration operations Get, Save, Update and etc apis. (Redux)
-- [ ] Create Option page to config app settings (Shad cn UI, Tailwind css, Framer-motion)
+- [-] Configuration operations Get, Save, Update and etc apis. (Redux)
+- [-] Create Option page to config app settings (Shad cn UI, Tailwind css, Framer-motion)
 
 ## Phase 3: Show options
 
@@ -46,7 +46,12 @@
 - [x] Learn redux
 - [x] Learn framer-motion
 - [x] Decide what settings the extension will have
+- [x] I remade the structure of project.
+- [x] I made the config types and config slice. 
 - [-] Write settings form in options page
+- [-] I made some part of options page, but it's not complete.
+- [ ] connect store to Storage api of extension.
+- [ ] The ROADMAP.md and README.md files need update. The structure of project, used libraries, etc should add.
 
 ---
 
@@ -54,7 +59,4 @@
 
 ### Status explanation
 
-    Ok, I learned the some helpful libraries that can help me in this project:
-    1. Redux: manage app configuration and saving words.
-    2. Framer-motion: add animation to app.
-    3. Tailwindcss: add style to project.
+    I created the store and slice of configs and I created the first part of options page (select result language), but it's not done for now.

@@ -6,10 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
 	mode: "development",
 	entry: {
-		background: path.resolve(__dirname, "src/background/background.ts"),
-		content: path.resolve(__dirname, "src/content/content.ts"),
-		popup: path.resolve(__dirname, "src/popup/popup.tsx"),
-		options: path.resolve(__dirname, "src/options/options.tsx"),
+		background: path.resolve(__dirname, "src/core/background/background.ts"),
+		content: path.resolve(__dirname, "src/core/content/content.ts"),
+		popup: path.resolve(__dirname, "src/core/popup/popup.tsx"),
+		options: path.resolve(__dirname, "src/core/options/options.tsx"),
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
@@ -24,8 +24,12 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.css$/i,
-				use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+				test: /\.css$/,
+				use: [
+					process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+					"css-loader",
+					"postcss-loader",
+				],
 			},
 			{
 				test: /\.js$/,
@@ -47,18 +51,27 @@ module.exports = {
 			],
 		}),
 		new HtmlWebpackPlugin({
-			template: "src/index.html",
+			template: "src/core/index.html",
 			filename: "popup.html",
 			chunks: ["popup"],
 		}),
 		new HtmlWebpackPlugin({
-			template: "src/index.html",
+			template: "src/core/index.html",
 			filename: "options.html",
 			chunks: ["options"],
 		}),
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "styles.[contenthash].css",
+		}),
 	],
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".json"],
+		alias: {
+			assets: path.resolve(__dirname, "src/assets/"),
+			features: path.resolve(__dirname, "src/features/"),
+			store: path.resolve(__dirname, "src/store/"),
+			core: path.resolve(__dirname, "src/core/"),
+			"@": path.resolve(__dirname, "src"),
+		},
+		extensions: [".tsx", ".ts", ".js", ".json"],
 	},
 };
