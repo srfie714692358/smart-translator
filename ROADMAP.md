@@ -8,8 +8,9 @@
 
 ## Phase 2: Configs of app
 
-- [-] Configuration operations Get, Save, Update and etc apis. (Redux)
-- [-] Create Option page to config app settings (Shad cn UI, Tailwind css, Framer-motion)
+- [x] Configuration operations Get, Save, Update and etc apis. (Redux)
+- [x] Create Option page to config app settings (Shad cn UI, Tailwind css, Framer-motion)
+- [ ] Debug the page
 
 ## Phase 3: Show options
 
@@ -42,16 +43,12 @@
 
 ## In processing task: Create Option page to config app settings.
 
-- [x] Learn tailwind css
-- [x] Learn redux
-- [x] Learn framer-motion
-- [x] Decide what settings the extension will have
-- [x] I remade the structure of project.
-- [x] I made the config types and config slice. 
-- [-] Write settings form in options page
-- [-] I made some part of options page, but it's not complete.
-- [ ] connect store to Storage api of extension.
+
+- [x] Write settings form in options page (The config form completed, but it needs debug)
+- [x] I made some part of options page, but it's not complete. (It's completed now, but it needs debug.)
+- [x] connect store to Storage api of extension.(It's completed, but it needs debug and maybe it can be improved)
 - [ ] The ROADMAP.md and README.md files need update. The structure of project, used libraries, etc should add.
+- [ ] The config form needs debug. 
 
 ---
 
@@ -59,4 +56,10 @@
 
 ### Status explanation
 
-    I created the store and slice of configs and I created the first part of options page (select result language), but it's not done for now.
+    The config form (options page) is completed, but it needs debug. And also it connected to storage api of extension.
+    Some bugs of config form:
+    - When user add new api, the default api not changed.
+    - When user delete all APIs, it should show a message to user that he should set at least one API.
+    - When user edit an API, the form component should rerender.
+    - The config form should be more user friendly.
+    And it should gets debug more.

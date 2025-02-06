@@ -1,7 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	mode: "development",
@@ -25,11 +24,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
-					"css-loader",
-					"postcss-loader",
-				],
+				use: ["style-loader", "css-loader", "postcss-loader"],
 			},
 			{
 				test: /\.js$/,
@@ -60,9 +55,6 @@ module.exports = {
 			filename: "options.html",
 			chunks: ["options"],
 		}),
-		new MiniCssExtractPlugin({
-			filename: "styles.[contenthash].css",
-		}),
 	],
 	resolve: {
 		alias: {
@@ -73,5 +65,9 @@ module.exports = {
 			"@": path.resolve(__dirname, "src"),
 		},
 		extensions: [".tsx", ".ts", ".js", ".json"],
+	},
+	devtool: "inline-source-map", // Enable source maps for better debugging
+	watchOptions: {
+		ignored: /node_modules/,
 	},
 };
